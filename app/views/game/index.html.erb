@@ -1,19 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
 <link href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.min.css" rel="stylesheet" type="text/css" />
-<script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
-<script src="//code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
-<link href='//fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 <link href='css/style.css' rel='stylesheet' type='text/css' />
 <link href='widgets/pushbutton/pushbutton.css' rel='stylesheet' type='text/css' />
 <link href='widgets/clock/clock.css' rel='stylesheet' type='text/css' />
 <link href='widgets/chart/chart.css' rel='stylesheet' type='text/css' />
-<meta charset=utf-8 />
-<title>Mathemaster</title>
-</head>
-<body>
 <div id="page-wrapper">
     <div id="center-on-page">
         <div id="center-on-center-on-page">
@@ -80,10 +69,7 @@
 <!-- load widget types for interaction -->
 <script type="text/javascript" src="widgets/clock/clock.js"></script>
 <!-- load game logic -->
-<script type="text/javascript" src="js/welcome.js"></script>
-<script type="text/javascript" src="js/game.js"></script>
-<script type="text/javascript" src="js/question.js"></script>
-<script type="text/javascript" src="js/operator.js"></script>
-<script type="text/javascritp" src="js/stats.js"></script>
-</body>
-</html>
+<%= javascript_include_tag "game/welcome" %>
+<%= javascript_include_tag "game/question" %>
+<%= javascript_include_tag "game/operator" %>
+<%= javascript_include_tag "game/stats" %>
