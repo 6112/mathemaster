@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Mathemaster::Application.config.secret_key_base = '488786fce479443ba08492f8e480593fd92f2c456e369b48205d12b685dbb829b869b85c00fbedb180fad1643b9a62ba9c652a7a655cc664712c25324eb8a1c6'
+Mathemaster::Application.config.secret_key_base = '82134f783a815ea4084c91cb20e184e568ac1d1a44fd8ef1481ea2a835ff3c7cdb32d0e7d17253d916c14c5436fe018588b401a4131f13561f7a9959bb476b31'

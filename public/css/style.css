@@ -52,6 +52,10 @@ body, button {
   display: none;
 }
 
+#screen-statistics {
+    display: none;
+}
+
 .margin-auto {
   margin: auto;
 }
