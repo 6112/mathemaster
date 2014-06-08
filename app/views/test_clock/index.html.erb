@@ -1,102 +1,81 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <link href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.min.css" rel="stylesheet" type="text/css" />
-    <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
-    <script src="//code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
-    <link href='../css/style.css' rel='stylesheet' type='text/css' />
-    <link href='../widgets/clock/clock.css' rel='stylesheet' type='text/css' />
-    <meta charset=utf-8 />
-    <title>test_clock</title>
-    <style>
-      .entry {
-        padding: 8px;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="entry" clock-id=1>
-      Clock 1 (default): 
-    </div>
-    <div class="entry" duration=3 clock-id=2>
-      Clock 2 (3s): 
-    </div>
-    <div class="entry" interval=0.03 clock-id=3>
-      Clock 3 (0.03s interval): 
-    </div>
-    <div class="entry" interval=0.1 clock-id=4>
-      Clock 4 (0.1s interval):
-    </div>
-    <div class="entry" clock-id=5>
-      Clock 5 (continuously restarts):
-    </div>
-    <div class="entry" clock-id=6>
-      Clock 6 (destroyed after it's finished):
-    </div>
-    <div class="entry">
-      Clock 7 (pauses after 2 seconds):
-    </div>
-    <textarea id="log" rows=10 cols=40></textarea>
-    <script src="../widgets/clock/clock.js"></script>
-    <script>
-      $ (function () {
-        // used instead of console.log()
-        var log = function (message) {
-          $ ('#log').append (message);  
-        };
-        
-        // used for generating a clock id for those that don't have one
-        var highestClockId = 0;
-        
-        // object mapping clock id's to clocks
-        var clocks = [];
-        
-        // for each unit-test entry
-        $ ('.entry').each (function () {
-          var self = $ (this);
-          var duration = parseFloat (self.attr ('duration')) || 6;
-          var interval = parseFloat (self.attr ('interval')) || undefined;
-          var clockId = self.attr ('clock-id') || ++highestClockId;
-          highestClockId = Math.max (clockId, highestClockId);
-          var clockName = 'Clock ' + clockId;
-          var clock = new ClockWidget (duration, interval);
-          clocks [clockId] = clock;
-          clock.element.attr ('id', 'clock-' + clockId);
-          self.append (clock.element);
-          var start;
-          clock.on ('start', function () {
-            start = new Date ();
-            log (clockName + ' started.\n');
-          });
-          clock.on ('finish', function () {
-            var end = new Date ();
-            log (clockName + ' finished. (' 
-              + ((end - start) / 1000) + 'seconds)\n');
-          });
-          clock.on ('pause', function () {
-            log (clockName + ' paused.\n');
-          })
-          clock.on ('destroy', function () {
-            log (clockName + ' destroyed.\n');
-          });
-          clock.start ();
-        });
-        
-        clocks [5].on ('finish', function () {
-          this.reset ();
-          this.start ();
-        });
-      
-        clocks [6].on ('finish', function () {
-          this.destroy ();
-          $ ('.entry[clock-id="6"]').append ('<i>&lt;clock destroyed&gt;</i>');
-        });
-        
-        setTimeout (function () {
-          clocks [7].pause ();
-        }, 2000);
+<div class="entry" clock-id=1>
+  Clock 1 (default): 
+</div>
+<div class="entry" duration=3 clock-id=2>
+  Clock 2 (3s): 
+</div>
+<div class="entry" interval=0.03 clock-id=3>
+  Clock 3 (0.03s interval): 
+</div>
+<div class="entry" interval=0.1 clock-id=4>
+  Clock 4 (0.1s interval):
+</div>
+<div class="entry" clock-id=5>
+  Clock 5 (continuously restarts):
+</div>
+<div class="entry" clock-id=6>
+  Clock 6 (destroyed after it's finished):
+</div>
+<div class="entry">
+  Clock 7 (pauses after 2 seconds):
+</div>
+<textarea id="log" rows=10 cols=40></textarea>
+<script>
+  $ (function () {
+    // used instead of console.log()
+    var log = function (message) {
+      $ ('#log').append (message);  
+    };
+    
+    // used for generating a clock id for those that don't have one
+    var highestClockId = 0;
+    
+    // object mapping clock id's to clocks
+    var clocks = [];
+    
+    // for each unit-test entry
+    $ ('.entry').each (function () {
+      var self = $ (this);
+      var duration = parseFloat (self.attr ('duration')) || 6;
+      var interval = parseFloat (self.attr ('interval')) || undefined;
+      var clockId = self.attr ('clock-id') || ++highestClockId;
+      highestClockId = Math.max (clockId, highestClockId);
+      var clockName = 'Clock ' + clockId;
+      var clock = new ClockWidget (duration, interval);
+      clocks [clockId] = clock;
+      clock.element.attr ('id', 'clock-' + clockId);
+      self.append (clock.element);
+      var start;
+      clock.on ('start', function () {
+        start = new Date ();
+        log (clockName + ' started.\n');
       });
-    </script>
-  </body>
-</html>
+      clock.on ('finish', function () {
+        var end = new Date ();
+        log (clockName + ' finished. (' 
+          + ((end - start) / 1000) + 'seconds)\n');
+      });
+      clock.on ('pause', function () {
+        log (clockName + ' paused.\n');
+      })
+      clock.on ('destroy', function () {
+        log (clockName + ' destroyed.\n');
+      });
+      clock.start ();
+    });
+    
+    clocks [5].on ('finish', function () {
+      this.reset ();
+      this.start ();
+    });
+  
+    clocks [6].on ('finish', function () {
+      this.destroy ();
+      $ ('.entry[clock-id="6"]').append ('<i>&lt;clock destroyed&gt;</i>');
+    });
+    
+    setTimeout (function () {
+      clocks [7].pause ();
+    }, 2000);
+  });
+</script>
