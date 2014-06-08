@@ -1,8 +1,10 @@
 Mathemaster::Application.routes.draw do
-  get "unit_tests/index"
-  get "test_pushbutton/index"
-  get "test_clock/index"
-  get "test_chart/index"
+  
+  get "unit_tests", to: "unit_tests#index"
+  get "test_pushbutton", to: "test_pushbutton#index"
+  get "test_clock", to: "test_clock#index"
+  get "test_chart", to: "test_chart#index"
+
   root 'game#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
