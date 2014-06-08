@@ -1,3 +1,160 @@
-// Place all the styles related to the game controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+// Global CSS
+
+body {
+  font-family: Lato;
+  background-color: #EEE;
+}
+
+body, button {
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+}
+
+// Box in the middle of the page
+
+#page-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  height: 100%;
+}
+
+// Center the box
+
+#page-wrapper::before {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+
+#center-on-page {
+  display: inline-block;
+  vertical-align: middle;
+  background-color: #FFFFFF;
+  border-radius: 16px;
+  width: 800px;
+  height: 500px;
+  position: relative;
+}
+
+#center-on-page::before {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+
+// Center the content of that box
+
+#center-on-center-on-page {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+// First screen, where the user chooses the game modes
+
+#screen-welcome {
+}
+
+// Screen where the game is played
+
+#screen-game {
+  display: none;
+}
+
+// Screen where the stats are viewed
+
+#screen-statistics {
+    display: none;
+}
+
+// General CSS classes that can be used for any elements
+
+.margin-auto {
+  margin: auto;
+}
+
+.hidden {
+  display: none;
+}
+
+// A line separator (like the <hr /> tag)
+
+.separator {
+  height: 1px;
+  width: 100%;
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: #CCC;
+}
+
+// Style the buttons
+
+button {
+  background-color: #4671D5;
+  box-shadow: 0 -2px #1240AB inset;
+  border-radius: 4px;
+  border: none;
+}
+
+button:hover {
+  background-color: #5681E5;
+}
+
+button:active {
+  box-shadow: 0 2px #1240AB inset;
+}
+
+// Use the big-button class for buttons that are big (64px in height)
+
+.big-button {
+  line-height: 64px;
+  height: 64px;
+  font-size: 30px;
+  border-radius: 8px;
+  box-shadow: 0 -4px #1240AB inset;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.big-button:active, .big-square-button:active {
+  box-shadow: 0 4px #1240AB inset;
+}
+
+// Class for the buttons to choose game difficulty
+
+.difficulty-button {
+  width: 100px;
+}
+
+// Use the big-square-button class for buttons that are big and square (64x64)
+.big-square-button {
+  line-height: 64px;
+  height: 64px;
+  width: 64px;
+  text-align: center;
+  font-size: 30px;
+  border-radius: 8px;
+  box-shadow: 0 -4px #1240AB inset;
+}
+
+// Table containing the equation that the user should solve
+
+#screen-game #table-equation {
+  margin: auto;
+  width: 400px;
+}
+
+#screen-game #table-answer {
+  margin: auto;
+}
+
+// Button to go back to #welcome-screen, inside #game-screen
+#button-back {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+}
