@@ -12,7 +12,9 @@ require "rails/test_unit/railtie"
 Bundler.require(:default, Rails.env)
 
 #require "rails_12factor", :group => :production
-require 'rails_12factor'
+group :production do
+  require 'rails_12factor'
+end
 
 module Mathemaster
   class Application < Rails::Application
