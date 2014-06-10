@@ -121,10 +121,13 @@ jQuery (function ($) {
   Mathemaster.Question.prototype.makeAnswerField = function() {
     var container = $('<div id="input-container">&nbsp;</div>');
     var field = $('<span id="input-field"></span>');
-    var placeholder = $('<span id="input-placeholder"></span>');
-    placeholder.text('Type your answer~~');
-    placeholder.show(Mathemaster.placeholder.showEffect);
-    container.append(placeholder);
+    var helpText1 = $('<span id="input-help-text-1"></span>');
+    var helpText2 = $('<span id="input-help-text-2"></span>');
+    helpText1.text('Type your answer~~');
+    helpText1.show(Mathemaster.helpText.showEffect);
+    container.append(helpText1);
+    helpText2.text('Press Enter~~');
+    container.append(helpText2);
     container.append(field);
     return container;
   };

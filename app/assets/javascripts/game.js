@@ -5,17 +5,15 @@ jQuery (function ($) {
   // time given to answer a single question
   var GIVEN_TIME = 8;
   
-  Mathemaster.placeholder = {
-    showDuration: 4000,
+  Mathemaster.helpText = {
     showEffect: {
       effect: 'fade',
-      duration: 4000
+      duration: 3000
     },
     hideEffect: {
       effect: 'fade',
       duration: 500
-    },
-    hideDuration: 500
+    }
   };
 
   Mathemaster.animation = Mathemaster.animation || {};
@@ -232,12 +230,16 @@ jQuery (function ($) {
         }
         $('#input-field').text(entry);
         if (entry === '') {
-          $('#input-placeholder').stop();
-          $('#input-placeholder').show(Mathemaster.placeholder.showEffect);
+          $('#input-help-text-1').stop();
+          $('#input-help-text-2').stop();
+          $('#input-help-text-1').show(Mathemaster.helpText.showEffect);
+          $('#input-help-text-2').hide(Mathemaster.helpText.hideEffect);
         }
         else if (entry.length === 1) {
-          $('#input-placeholder').stop();
-          $('#input-placeholder').hide(Mathemaster.placeholder.hideEffect);
+          $('#input-help-text-1').stop();
+          $('#input-help-text-2').stop();
+          $('#input-help-text-1').hide(Mathemaster.helpText.hideEffect);
+          $('#input-help-text-2').show(Mathemaster.helpText.showEffect);
         }
       }
     };
