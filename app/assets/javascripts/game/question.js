@@ -92,7 +92,7 @@ jQuery (function ($) {
     return table;
   };
   
-  Mathemaster.Question.prototype.makeAnswerTable = function () {
+  /*Mathemaster.Question.prototype.makeAnswerTable = function () {
     var table = $ ('<table id="table-answer"></table>');
     var row = $ ('<tr></tr>');
     table.append (row);
@@ -116,6 +116,17 @@ jQuery (function ($) {
       row.append (cell);
     }, this));
     return table;
+  };*/
+
+  Mathemaster.Question.prototype.makeAnswerField = function() {
+    var container = $('<div id="input-container">&nbsp;</div>');
+    var field = $('<span id="input-field"></span>');
+    var placeholder = $('<span id="input-placeholder"></span>');
+    placeholder.text('Type your answer~~');
+    placeholder.show(Mathemaster.placeholder.showEffect);
+    container.append(placeholder);
+    container.append(field);
+    return container;
   };
   
   Mathemaster.Question.prototype.answer = function () {

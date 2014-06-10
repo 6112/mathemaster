@@ -35,11 +35,11 @@
         </table>
         <p>
         <%= push_button "Easy", "difficulty-easy", "difficulty",
-          false, ["difficulty-button"] %>
+          false, ["difficulty-button"], :value => 0 %>
         <%= push_button "Normal", "difficulty-normal", "difficulty",
-          false, ["difficulty-button"] %>
+          true, ["difficulty-button"], :value => 1 %>
         <%= push_button "Hard", "difficulty-hard", "difficulty",
-          false, ["difficulty-button"] %>
+          false, ["difficulty-button"], :value => 2 %>
         <div class="separator"></div>
           <button class="big-button side-margins" id="start-playing-button">  
             Start playing!

@@ -152,6 +152,35 @@ button:active {
   margin: auto;
 }
 
+#input-container {
+  font-size: 6em;
+  width: 600px;
+  text-align: center;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+#input-placeholder {
+  font-size: 0.5em;
+  text-shadow: none;
+  vertical-align: middle;
+  color: #EEE;
+  font-style: italic;
+  position: relative;
+  left: 0;
+  bottom: 0.5em;
+}
+
+#input-field {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+}
+
 // Button to go back to #welcome-screen, inside #game-screen
 #button-back {
   position: absolute;
