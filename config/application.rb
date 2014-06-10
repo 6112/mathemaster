@@ -11,7 +11,8 @@ require "rails/test_unit/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env)
 
-require "rails_12factor", :group => :production
+#require "rails_12factor", :group => :production
+require 'rails_12factor'
 
 module Mathemaster
   class Application < Rails::Application
