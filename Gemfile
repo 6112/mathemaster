@@ -1,3 +1,6 @@
+# ruby version
+ruby '2.0.0'
+
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -15,6 +18,9 @@ gem 'uglifier', '>= 1.3.0'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
+
+# serve static assets
+gem 'rails_serve_static_assets'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
