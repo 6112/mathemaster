@@ -22,6 +22,7 @@ gem 'uglifier', '>= 1.3.0'
 # serve static assets
 gem 'rails_serve_static_assets'
 gem 'rails_12factor'
+gem 'rails-assets'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
