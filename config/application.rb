@@ -11,7 +11,7 @@ require "rails/test_unit/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env)
 
-config.serve_static_assets = true
+require "rails_12factor", :group => :production
 
 module Mathemaster
   class Application < Rails::Application
