@@ -1,0 +1,18 @@
+.entry
+  .chart-wrapper
+    .chart-background
+    .chart-slice
+      .slice{:style => "background:yellow;transform:rotate(100deg);"}
+    .chart-slice
+      .slice
+%textarea#log{:cols => "40", :rows => "10"}
+:javascript
+  $ (function () {
+      var log = function (message) {
+          $ ('#log').append (message + '\n');
+      };
+  });
+:css
+  .entry {
+    padding: 8px;
+  }

@@ -1,0 +1,42 @@
+#page-wrapper
+  #center-on-page
+    #center-on-center-on-page
+      #screen-welcome
+        %h1 Choose what you want to practice
+        %table.margin-auto
+          %tr
+            %td
+              %input#operator-plus.hidden{:checked => "", :type => "checkbox"}/
+              %label.push-button.big-square-button{:for => "operator-plus"}
+                +
+            %td
+              %input#operator-times.hidden{:type => "checkbox"}/
+              %label.push-button.big-square-button{:for => "operator-times"}
+                ×
+          %tr
+            %td
+              %input#operator-minus.hidden{:checked => "", :type => "checkbox"}/
+              %label.push-button.big-square-button{:for => "operator-minus"}
+                −
+            %td
+              %input#operator-over.hidden{:type => "checkbox"}/
+              %label.push-button.big-square-button{:for => "operator-over"}
+                ÷
+        %p
+          = push_button "Easy", "difficulty-easy", "difficulty", |
+            false, ["difficulty-button"], :value => 0            |
+          -#
+          = push_button "Normal", "difficulty-normal", "difficulty", |
+            true, ["difficulty-button"], :value => 1                 |
+          -#
+          = push_button "Hard", "difficulty-hard", "difficulty", |
+            false, ["difficulty-button"], :value => 2            |
+        .separator
+        %button#start-playing-button.big-button.side-margins
+          Start playing!
+      #screen-game
+      #screen-statistics
+= javascript_include_tag "game/welcome"
+= javascript_include_tag "game/question"
+= javascript_include_tag "game/operator"
+= javascript_include_tag "game/stats"

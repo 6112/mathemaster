@@ -1,0 +1,15 @@
+%p
+  %input#button-1.hidden{:type => "checkbox"}/
+  %label.push-button{:for => "button-1"}
+    Initially unchecked
+  %p
+    %input#button-2.hidden{:checked => "", :type => "checkbox"}/
+    %label.push-button{:for => "button-2"}
+      Initially checked
+    %p
+      %input#button-3.hidden{:checked => "", :name => "exclusive", :type => "radio"}/
+      %label.push-button{:for => "button-3"}
+        Mutually exclusive option 1
+      %input#button-4.hidden{:name => "exclusive", :type => "radio"}/
+      %label.push-button{:for => "button-4"}
+        Mutually exclusive option 2
