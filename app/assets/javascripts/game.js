@@ -180,12 +180,11 @@ jQuery (function ($) {
     }
   };
 
-  var checkAnswer = function () {
-    var answerText = $('#input-field').text();
-    var answer = parseInt(answerText);
-  };
   Mathemaster.Game.prototype.checkAnswer = function () {
     var answerText = $('#input-field').text();
+    if (answerText === '' || answerText === '-') {
+      return;
+    }
     var answer = parseInt(answerText);
     this._question.answerGiven = answer;
     var animation;
@@ -197,9 +196,6 @@ jQuery (function ($) {
     }
     this.screenWrapper.effect(animation);
     this.nextQuestion();
-    /*if (answer === this._question.answer()) {
-      this.nextQuestion();
-    }*/
   };
 
   Mathemaster.Game.prototype.addKeyListener = function() {

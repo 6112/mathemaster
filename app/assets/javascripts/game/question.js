@@ -92,32 +92,6 @@ jQuery (function ($) {
     return table;
   };
   
-  /*Mathemaster.Question.prototype.makeAnswerTable = function () {
-    var table = $ ('<table id="table-answer"></table>');
-    var row = $ ('<tr></tr>');
-    table.append (row);
-    _.each (this.choices, _.bind (function (choice) {
-      var cell = $ ('<td></td>');
-      var button = $ ('<button class="big-button">' + choice + '</button>');
-      button.click (_.bind (function () {
-        this.answerGiven = choice;
-        this.game.addToHistory (this);
-        var animation;
-        if (this.isRight ()) {
-          animation = Mathemaster.animation.right;
-        }
-        else {
-          animation = Mathemaster.animation.wrong;
-        }
-        this.game.screenWrapper.effect (animation);
-        this.game.nextQuestion ();
-      }, this));
-      cell.append (button);
-      row.append (cell);
-    }, this));
-    return table;
-  };*/
-
   Mathemaster.Question.prototype.makeAnswerField = function() {
     var container = $('<div id="input-container">&nbsp;</div>');
     var field = $('<span id="input-field"></span>');
