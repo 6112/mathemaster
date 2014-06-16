@@ -1,9 +1,8 @@
 Mathemaster::Application.routes.draw do
   
-  get "unit_tests", to: "unit_tests#index"
-  get "test_pushbutton", to: "test_pushbutton#index"
-  get "test_clock", to: "test_clock#index"
-  get "test_chart", to: "test_chart#index"
+  get "test/clock"
+  get "test/push_button"
+  get "test/pie_chart"
 
   root 'game#index'
 
