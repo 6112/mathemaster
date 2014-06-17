@@ -18,9 +18,9 @@ module Mathemaster
   class Application < Rails::Application
     config.assets.precompile += [
       "game.css",
-      "widgets/chart/chart.css",
       "widgets/clock/clock.css",
-      "widgets/pushbutton/pushbutton.css",
+      "widgets/pie-chart/pie-chart.css",
+      "widgets/push-button/push-button.css",
       "game.js",
       "game/operator.js",
       "game/question.js",
