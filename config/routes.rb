@@ -1,6 +1,7 @@
 Mathemaster::Application.routes.draw do
   
   get "test/clock"
+  get "test/graph"
   get "test/push_button"
   get "test/pie_chart"
 

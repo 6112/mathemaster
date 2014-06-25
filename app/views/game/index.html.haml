@@ -23,14 +23,12 @@
               %label.push-button.big-square-button{:for => "operator-over"}
                 ÷
         %p
-          = push_button "Easy", "difficulty-easy", "difficulty", |
-            false, ["difficulty-button"], :value => 0            |
-          -#
-          = push_button "Normal", "difficulty-normal", "difficulty", |
-            true, ["difficulty-button"], :value => 1                 |
-          -#
-          = push_button "Hard", "difficulty-hard", "difficulty", |
-            false, ["difficulty-button"], :value => 2            |
+          = push_button "Easy", "difficulty-easy", "difficulty", 
+              false, ["difficulty-button"], :value => 0
+          = push_button "Normal", "difficulty-normal", "difficulty",
+              true, ["difficulty-button"], :value => 1
+          = push_button "Hard", "difficulty-hard", "difficulty",
+              false, ["difficulty-button"], :value => 2
         .separator
         %button#start-playing-button.big-button.side-margins
           Start playing!
