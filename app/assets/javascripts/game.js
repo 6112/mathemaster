@@ -85,9 +85,17 @@ jQuery (function ($) {
       this._clock.element.hide ();
       this._clock.element.show (Mathemaster.animation.question);
       this._buttonBack = 
-        $ ('<button id="button-back" class="big-button">Back</button>');
+        $('<a href="#" class="ion-arrow-return-left" id="back-button"></a>');
       this._buttonBack.click (function () {
         game.stop ();
+        return false;
+      });
+      this._buttonBack.attr('title', 'Back to home screen');
+      this._buttonBack.tooltip({
+        position: {
+           at: "center top",
+           my: "center bottom"
+        }
       });
       this.screenWrapper.append (this._buttonBack);
       this._buttonBack.hide ();

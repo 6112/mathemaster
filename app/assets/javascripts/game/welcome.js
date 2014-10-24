@@ -10,7 +10,7 @@ jQuery (function ($) {
       duration: 600
     }
   });
-  
+
   $ ('#start-playing-button').click (function () {
     $ ('#screen-welcome').hide (_.extend ({
       complete: function () {
@@ -36,5 +36,10 @@ jQuery (function ($) {
   $('#view-stats-link').click(function() {
     Mathemaster.Stats.show();
     return false;
+  }).tooltip({
+    position: {
+      at: "center top",
+      my: "center bottom"
+    }
   });
 });
