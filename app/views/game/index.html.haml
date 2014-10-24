@@ -32,8 +32,8 @@
         .separator
         %button#start-playing-button.big-button.side-margins
           Start playing!
-        %button#tmp.side-margins
-          Show Statistics
+        %a#view-stats-link{:href => "#"}
+          %span.ion-stats-bars
       #screen-game
       #screen-statistics
 = javascript_include_tag "game/welcome"

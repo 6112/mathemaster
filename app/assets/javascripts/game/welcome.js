@@ -33,7 +33,8 @@ jQuery (function ($) {
     }, Mathemaster.animation.screenChange));
   });
 
-  $('#tmp').click(function() {
+  $('#view-stats-link').click(function() {
     Mathemaster.Stats.show();
+    return false;
   });
 });
