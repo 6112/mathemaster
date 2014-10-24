@@ -32,4 +32,8 @@ jQuery (function ($) {
       }
     }, Mathemaster.animation.screenChange));
   });
+
+  $('#tmp').click(function() {
+    Mathemaster.Stats.show();
+  });
 });

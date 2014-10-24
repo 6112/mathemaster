@@ -2,6 +2,12 @@ jQuery (function ($) {
   window.Mathemaster = window.Mathemaster || {};
   var Mathemaster = window.Mathemaster;
   
+  // "compile-time" options for debugging
+  Mathemaster.options = {
+    // whether to record statistics for the history
+    history: false
+  };
+
   // time given to answer a single question
   var GIVEN_TIME = 8;
   
@@ -70,7 +76,7 @@ jQuery (function ($) {
     this._question = null;
     this._started = false;
   };
-  
+
   Mathemaster.Game.prototype.start = function () {
     var game = this;
     if (! this._started) {
@@ -100,7 +106,6 @@ jQuery (function ($) {
           this._clock.destroy ();
         }, this)
       }, Mathemaster.animation.disappear));
-      // this._buttonBack.remove ();
       this._buttonBack.hide (_.extend ({
         complete: _.bind (function () {
           this._buttonBack.remove ();
@@ -109,10 +114,18 @@ jQuery (function ($) {
       this.screen.hide (_.extend ({
         complete: _.bind (function () {
           this.screen.empty ();
-          $ ('#screen-welcome').show (Mathemaster.animation.screenChange);
+          $('#screen-welcome').show (Mathemaster.animation.screenChange);
         }, this)
       }, Mathemaster.animation.screenChange));
       this.removeKeyListener();
+      var ratio = this.rightAnswerCount / (this.rightAnswerCount + this.wrongAnswerCount);
+      var hist = localStorage.getItem('history') || "[]";
+      hist = JSON.parse(hist);
+      hist.push(ratio);
+      if (Mathemaster.options.history) {
+        localStorage.setItem('history', JSON.stringify(hist));
+      }
+      // Mathemaster.Stats.show(this);
     }
   };
   
@@ -135,10 +148,8 @@ jQuery (function ($) {
     var questionTable = question.makeQuestionTable ();
     var questionTableWrapper = $ ('<h1></h1>');
     questionTableWrapper.append (questionTable);
-    // var answerTable = question.makeAnswerTable ();
     var answerField = question.makeAnswerField();
     problemElement.append (questionTableWrapper);
-    // problemElement.append (answerTable);
     problemElement.append(answerField);
     return problemElement;
   };
