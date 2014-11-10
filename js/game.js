@@ -228,7 +228,7 @@ jQuery (function ($) {
           entry = entry.substring(0, entry.length - 1);
         }
         else if ('0123456789'.indexOf(key) !== -1) {
-          if (entry.length < 8) {
+          if (entry.length < 8) {
             entry = entry + key;
           }
         }

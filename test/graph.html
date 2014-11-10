@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Clock component test</title>
+  <link href="//fonts.googleapis.com/css?family=Open Sans" rel="stylesheet" type="text/css" />
+  <link href="//code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css" rel="stylesheet" type="text/css" />
+  <link href="../css/game.css" rel="stylesheet" type="text/css" />
+  <link href="../css/widgets/clock/clock.css" rel="stylesheet" type="text/css" />
+  <link href="../css/widgets/pie-chart/pie-chart.css" rel="stylesheet" type="text/css" />
+  <link href="../css/widgets/push-button/push-button.css" rel="stylesheet" type="text/css" />
+  <link href="../bower_components/jquery-ui/themes/base/all.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id='graph-area'></div>
+<style>
+  #graph-area {
+    border: 1px solid black;
+  }
+</style>
+<script src="../bower_components/underscore/underscore.js"></script>
+<script src="../bower_components/jquery/dist/jquery.js"></script>
+<script src="../bower_components/jquery-ui/jquery-ui.js"></script>
+<script src="../js/game.js"></script>
+<script src="../js/widgets/clock/clock.js"></script>
+<script src="../js/widgets/graph/graph.js"></script>
+<script>
+  $(function() {
+    var graph = new Mathemaster.Graph('#graph-area',
+      'Performance',
+      'Correct answers (%)',
+      'Time',
+      400, 300);
+    graph.setData([0.5, 0.8, 0.85, 0.3, 0.6, 0.7]);
+    graph.draw();
+  });
+</script>
+</body>

@@ -1,19 +1,46 @@
-.entry{"clock-id" => "1"}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Clock component test</title>
+  <link href="//fonts.googleapis.com/css?family=Open Sans" rel="stylesheet" type="text/css" />
+  <link href="//code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css" rel="stylesheet" type="text/css" />
+  <link href="../css/game.css" rel="stylesheet" type="text/css" />
+  <link href="../css/widgets/clock/clock.css" rel="stylesheet" type="text/css" />
+  <link href="../css/widgets/pie-chart/pie-chart.css" rel="stylesheet" type="text/css" />
+  <link href="../css/widgets/push-button/push-button.css" rel="stylesheet" type="text/css" />
+  <link href="../bower_components/jquery-ui/themes/base/all.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div class='entry' clock-id='1'>
   Clock 1 (default):
-.entry{"clock-id" => "2", :duration => "3"}
+</div>
+<div class='entry' clock-id='2' duration='3'>
   Clock 2 (3s):
-.entry{"clock-id" => "3", :interval => "0.03"}
+</div>
+<div class='entry' clock-id='3' interval='0.03'>
   Clock 3 (0.03s interval):
-.entry{"clock-id" => "4", :interval => "0.1"}
+</div>
+<div class='entry' clock-id='4' interval='0.1'>
   Clock 4 (0.1s interval):
-.entry{"clock-id" => "5"}
+</div>
+<div class='entry' clock-id='5'>
   Clock 5 (continuously restarts):
-.entry{"clock-id" => "6"}
+</div>
+<div class='entry' clock-id='6'>
   Clock 6 (destroyed after it's finished):
-.entry
+</div>
+<div class='entry'>
   Clock 7 (pauses after 2 seconds):
-%textarea#log{:cols => "40", :rows => "10"}
-:javascript
+</div>
+<textarea cols='40' id='log' rows='10'></textarea>
+<script src="../bower_components/underscore/underscore.js"></script>
+<script src="../bower_components/jquery/dist/jquery.js"></script>
+<script src="../bower_components/jquery-ui/jquery-ui.js"></script>
+<script src="../js/game.js"></script>
+<script src="../js/widgets/clock/clock.js"></script>
+<script src="../js/widgets/graph/graph.js"></script>
+<script>
   $ (function () {
     // used instead of console.log()
     var log = function (message) {
@@ -71,3 +98,5 @@
       clocks [7].pause ();
     }, 2000);
   });
+</script>
+</body>
