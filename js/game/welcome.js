@@ -12,25 +12,27 @@ jQuery (function ($) {
   });
 
   $ ('#start-playing-button').click (function () {
-    $ ('#screen-welcome').hide (_.extend ({
-      complete: function () {
-        $ ('#screen-game').show ();
-        var operatorNames = [];
-        $ ('#screen-welcome input[type=checkbox]').each (function () {
-          var self = $ (this);
-          if (self.is (':checked')) {
-            var id = self.attr ('id');
-            var operatorName = id.match (/-(\w+)$/)[1];
-            operatorNames.push (operatorName);
-          }
-        });
-        var difficulty = 
-          $ ('input[name=difficulty]:checked', '#screen-welcome').val ();
-        difficulty = parseInt (difficulty);
-        var game = new Mathemaster.Game (difficulty, operatorNames);
-        game.start ();
+    var difficulty = 
+      $ ('input[name=difficulty]:checked', '#screen-welcome').val ();
+    var operatorNames = [];
+    $ ('#screen-welcome input[type=checkbox]').each (function () {
+      var self = $ (this);
+      if (self.is (':checked')) {
+        var id = self.attr ('id');
+        var operatorName = id.match (/-(\w+)$/)[1];
+        operatorNames.push (operatorName);
       }
-    }, Mathemaster.animation.screenChange));
+    });
+    if (difficulty && operatorNames.length > 0) {
+      $ ('#screen-welcome').hide (_.extend ({
+        complete: function () {
+          $ ('#screen-game').show ();
+          difficulty = parseInt (difficulty);
+          var game = new Mathemaster.Game (difficulty, operatorNames);
+          game.start ();
+        }
+      }, Mathemaster.animation.screenChange));
+    }
   });
 
   $('#view-stats-link').click(function() {
