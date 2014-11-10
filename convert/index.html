@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Mathemaster</title>
+  <link href="http://fonts.googleapis.com/css?family=Open Sans" rel="stylesheet" type="text/css" />
+  <link href="http://code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css" rel="stylesheet" type="text/css" />
+  <link href="css/game.css" rel="stylesheet" type="text/css" />
+  <link href="css/widgets/clock/clock.css" rel="stylesheet" type="text/css" />
+  <link href="css/widgets/pie-chart/pie-chart.css" rel="stylesheet" type="text/css" />
+  <link href="css/widgets/push-button/push-button.css" rel="stylesheet" type="text/css" />
+  <link href="bower_components/jquery-ui/themes/base/all.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id='page-wrapper'>
+  <div id='center-on-page'>
+    <div id='center-on-center-on-page'>
+      <div id='screen-welcome'>
+        <h1>Choose what you want to practice</h1>
+        <table class='margin-auto'>
+          <tr>
+            <td>
+              <input checked='' class='hidden' id='operator-plus' type='checkbox'>
+              <label class='push-button big-square-button' for='operator-plus'>
+                +
+              </label>
+            </td>
+            <td>
+              <input class='hidden' id='operator-times' type='checkbox'>
+              <label class='push-button big-square-button' for='operator-times'>
+                ×
+              </label>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input checked='' class='hidden' id='operator-minus' type='checkbox'>
+              <label class='push-button big-square-button' for='operator-minus'>
+                −
+              </label>
+            </td>
+            <td>
+              <input class='hidden' id='operator-over' type='checkbox'>
+              <label class='push-button big-square-button' for='operator-over'>
+                ÷
+              </label>
+            </td>
+          </tr>
+        </table>
+        <div class="separator"></div>
+        <p>
+         <input type="radio" id="difficulty-easy" class="hidden" name="difficulty"
+          value="0" />
+         <label for="difficulty-easy" class="push-button difficulty-button">
+           Easy
+         </label>
+         <input type="radio" id="difficulty-normal" class="hidden" name="difficulty"
+          value="1" />
+         <label for="difficulty-normal" class="push-button difficulty-button">
+           Normal
+         </label>
+         <input type="radio" id="difficulty-hard" class="hidden" name="difficulty"
+          value="2" />
+         <label for="difficulty-hard" class="push-button difficulty-button">
+           Hard
+         </label>
+        </p>
+        <div class='separator'></div>
+        <button class='big-button side-margins' id='start-playing-button'>
+          Start playing!
+        </button>
+        <!--
+        <a href='#' id='view-stats-link' title='View statistics'>
+          <span class='ion-stats-bars'></span>
+        </a>
+        -->
+      </div>
+      <div id='screen-game'></div>
+      <div id='screen-statistics'></div>
+    </div>
+  </div>
+</div>
+<script src="bower_components/underscore/underscore.js"></script>
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/jquery-ui/jquery-ui.js"></script>
+<script src="js/game.js"></script>
+<script src="js/widgets/clock/clock.js"></script>
+<script src="js/widgets/graph/graph.js"></script>
+<script src="js/game/welcome.js"></script>
+<script src="js/game/question.js"></script>
+<script src="js/game/operator.js"></script>
+<script src="js/game/stats.js"></script>
+</body>

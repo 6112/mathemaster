@@ -1,0 +1,164 @@
+#view-stats-link, #back-button {
+  position: absolute;
+  bottom: 0px;
+  right: 16px;
+  font-size: 48px; }
+
+a {
+  color: #1240AB; }
+  a:hover {
+    color: #4671D5; }
+
+body {
+  background-color: #EEE; }
+
+body, button, input {
+  font-family: "Open Sans", sans; }
+
+body, button {
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2); }
+
+#page-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  height: 100%; }
+
+#page-wrapper::before {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle; }
+
+#center-on-page {
+  display: inline-block;
+  vertical-align: middle;
+  background-color: #FFFFFF;
+  border-radius: 16px;
+  width: 800px;
+  height: 500px;
+  position: relative; }
+
+#center-on-page::before {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle; }
+
+#center-on-center-on-page {
+  display: inline-block;
+  vertical-align: middle; }
+
+#screen-game {
+  display: none; }
+
+#screen-statistics {
+  display: none; }
+
+.margin-auto {
+  margin: auto; }
+
+.hidden {
+  display: none; }
+
+.separator {
+  height: 1px;
+  width: 100%;
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: #CCC; }
+
+button {
+  background-color: #4671D5;
+  color: black;
+  box-shadow: 0 -2px #1240AB inset;
+  border-radius: 4px;
+  border: none; }
+
+button:hover {
+  background-color: #5681E5; }
+
+button:active {
+  box-shadow: 0 2px #1240AB inset; }
+
+.big-button {
+  line-height: 64px;
+  height: 64px;
+  font-size: 30px;
+  border-radius: 8px;
+  box-shadow: 0 -4px #1240AB inset;
+  padding-left: 16px;
+  padding-right: 16px; }
+
+.big-button:active, .big-square-button:active {
+  box-shadow: 0 4px #1240AB inset; }
+
+.difficulty-button {
+  width: 100px; }
+
+.big-square-button {
+  line-height: 64px;
+  height: 64px;
+  width: 64px;
+  text-align: center;
+  font-size: 30px;
+  border-radius: 8px;
+  box-shadow: 0 -4px #1240AB inset; }
+
+#screen-game #table-equation {
+  margin: auto;
+  width: 400px; }
+
+#screen-game #table-answer {
+  margin: auto; }
+
+#input-container {
+  font-size: 6em;
+  width: 600px;
+  text-align: center;
+  position: relative;
+  top: 0;
+  left: 0; }
+
+#input-field, #input-help-text-1 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  text-align: center; }
+
+#input-help-text-1 {
+  font-size: 0.5em;
+  text-shadow: none;
+  vertical-align: middle;
+  color: #EEE;
+  font-style: italic;
+  margin-top: 0.5em;
+  z-index: 10; }
+
+#input-help-text-2 {
+  font-size: 0.5em;
+  text-shadow: none;
+  vertical-align: middle;
+  color: #EEE;
+  font-style: italic;
+  text-align: center;
+  display: none;
+  z-index: 10;
+  position: absolute;
+  bottom: -100%;
+  top: 100%;
+  left: 0;
+  right: 0; }
+
+#input-field {
+  z-index: 11; }
+
+#button-back {
+  position: absolute;
+  bottom: 16px;
+  right: 16px; }
