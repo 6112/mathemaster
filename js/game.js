@@ -86,17 +86,16 @@ jQuery (function ($) {
       this._clock.element.show (Mathemaster.animation.question);
       this._buttonBack =
         $('<a href="#" class="ion-arrow-return-left" id="back-button"></a>');
+      this._buttonBack = $('#back-button');
       this._buttonBack.click (function () {
+        $(this).tooltip('destroy');
         game.stop ();
         return false;
       });
-      this._buttonBack.attr('title', 'Back to home screen');
-      this._buttonBack.tooltip({
-        position: {
-           at: "center top",
-           my: "center bottom"
-        }
+      this._buttonBack.attr({
+        title: 'Back to home screen'
       });
+      this._buttonBack.tooltip();
       this.screenWrapper.append (this._buttonBack);
       this._buttonBack.hide ();
       this._buttonBack.show (Mathemaster.animation.question);
@@ -114,11 +113,7 @@ jQuery (function ($) {
           this._clock.destroy ();
         }, this)
       }, Mathemaster.animation.disappear));
-      this._buttonBack.hide (_.extend ({
-        complete: _.bind (function () {
-          this._buttonBack.remove ();
-        }, this)
-      }, Mathemaster.animation.disappear))
+      this._buttonBack.hide (Mathemaster.animation.disappear);
       this.screen.hide (_.extend ({
         complete: _.bind (function () {
           this.screen.empty ();
@@ -244,6 +239,7 @@ jQuery (function ($) {
           game.checkAnswer();
         }
         $('#input-field').text(entry);
+        // show or hide helper text depending on state
         if (entry === '') {
           $('#input-help-text-1').stop();
           $('#input-help-text-2').stop();

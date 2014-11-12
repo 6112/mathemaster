@@ -38,10 +38,10 @@ jQuery (function ($) {
   $('#view-stats-link').click(function() {
     Mathemaster.Stats.show();
     return false;
-  }).tooltip({
+  })/*.tooltip({
     position: {
       at: "center top",
       my: "center bottom"
     }
-  });
+  });*/
 });
