@@ -121,13 +121,11 @@ jQuery (function ($) {
         }, this)
       }, Mathemaster.animation.screenChange));
       this.removeKeyListener();
-      var ratio = this.rightAnswerCount / (this.rightAnswerCount + this.wrongAnswerCount);
-      var hist = localStorage.getItem('history') || "[]";
-      hist = JSON.parse(hist);
-      hist.push(ratio);
-      if (Mathemaster.options.history) {
-        localStorage.setItem('history', JSON.stringify(hist));
-      }
+      Mathemaster.Stats.push({
+        rightAnswerCount: this.rightAnswerCount,
+        wrongAnswerCount: this.wrongAnswerCount,
+        difficulty: this.difficulty
+      });
       // Mathemaster.Stats.show(this);
     }
   };

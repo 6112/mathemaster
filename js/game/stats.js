@@ -5,29 +5,22 @@ jQuery (function ($) {
     Mathemaster.Stats = {
       data: [
         {
-          gameCount: 3,
-          accuracy: 0.87,
-          rightAnswerCount: 37,
-          wrongAnswerCount: 3
+          gameCount: 0,
+          rightAnswerCount: 0,
+          wrongAnswerCount: 0
         },
         {
-          gameCount: 3,
-          accuracy: 0.87,
-          rightAnswerCount: 37,
-          wrongAnswerCount: 3
+          gameCount: 0,
+          rightAnswerCount: 0,
+          wrongAnswerCount: 0
         },
         { 
-          gameCount: 3,
-          accuracy: 0.87,
-          rightAnswerCount: 37,
-          wrongAnswerCount: 3
+          gameCount: 0,
+          rightAnswerCount: 0,
+          wrongAnswerCount: 0
         }
       ]
     };
-
-    var entries = [];
-    _.each(entries, function(entry) {
-    });
 
     // converts a fraction (0 .. 1) to a string saying the percentage it
     // represents
@@ -58,9 +51,11 @@ jQuery (function ($) {
           'Correct answers', data.rightAnswerCount,
           'Wrong answers', data.wrongAnswerCount,
           'Questions per game',
-          ((data.rightAnswerCount + data.wrongAnswerCount)
-           / data.gameCount).toFixed(1),
-           'Accuracy', percent(data.accuracy)
+          (((data.rightAnswerCount + data.wrongAnswerCount)
+           / data.gameCount) || 0).toFixed(1),
+           'Accuracy', percent(data.rightAnswerCount
+                               / (data.wrongAnswerCount 
+                                  + data.rightAnswerCount) || 0)
         ];
         var j;
         for (j = 0; j < entries.length; j += 2) {
@@ -84,7 +79,33 @@ jQuery (function ($) {
       }, Mathemaster.animation.screenChange));
     };
 
-    Mathemaster.Stats.hide = function () {
+    Mathemaster.Stats.hide = function() {
       $('#screen-welcome').show();
     };
+
+    // called after game end, add the stats from this game to the global stats
+    Mathemaster.Stats.push = function(data) {
+      var out = Mathemaster.Stats.data[data.difficulty];
+      out.rightAnswerCount += data.rightAnswerCount;
+      out.wrongAnswerCount += data.wrongAnswerCount;
+      out.gameCount++;
+      Mathemaster.Stats.save();
+    };
+
+    // save the stats to localStorage
+    Mathemaster.Stats.save = function() {
+      var saveString = JSON.stringify(Mathemaster.Stats.data);
+      localStorage.setItem('stats', saveString);
+    };
+
+    // load the stats from localStorage
+    Mathemaster.Stats.load = function() {
+      var saveString = localStorage.getItem('stats');
+      if (saveString) {
+        Mathemaster.Stats.data = JSON.parse(saveString);
+      }
+    };
+
+    // load stats from localStorage
+    Mathemaster.Stats.load();
 });
