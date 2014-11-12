@@ -1,8 +1,16 @@
-#view-stats-link, #back-button {
+#stats-button, #back-button {
   position: absolute;
   bottom: 0px;
   right: 16px;
   font-size: 48px; 
+}
+
+table.stats-table {
+}
+
+table.stats-table td {
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 a {

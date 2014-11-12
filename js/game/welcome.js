@@ -35,13 +35,8 @@ jQuery (function ($) {
     }
   });
 
-  $('#view-stats-link').click(function() {
+  $('#stats-button').click(function() {
     Mathemaster.Stats.show();
     return false;
-  })/*.tooltip({
-    position: {
-      at: "center top",
-      my: "center bottom"
-    }
-  });*/
+  });
 });
