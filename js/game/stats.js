@@ -31,7 +31,7 @@ jQuery (function ($) {
 
     Mathemaster.Stats.show = function () {
       var statsScreen = $('#screen-statistics');
-      statsScreen.empty();
+      $('table', statsScreen).remove();
       var difficulties = ['Easy', 'Medium', 'Hard'];
       var i;
       var wrapper = $('<table class="stats-table"></table>');
@@ -71,6 +71,19 @@ jQuery (function ($) {
         wrapperRow.append(wrapperCell);
       }
       wrapper.append(wrapperRow);
+      var buttonBack = $('.back-button', '#screen-statistics');
+      var goBack = function() {
+        $(this).tooltip('destroy');
+        $(this).off('click', goBack);
+        statsScreen.hide(_.extend({
+          complete: function() {
+            $('#screen-welcome').show(Mathemaster.animation.screenChange);
+          }
+        }, Mathemaster.animation.screenChange));
+        return false;
+      };
+      buttonBack.click(goBack);
+      buttonBack.tooltip();
       statsScreen.append(wrapper);
       $('#screen-welcome').hide(_.extend({
         complete: function() {

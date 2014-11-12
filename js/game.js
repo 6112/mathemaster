@@ -84,21 +84,18 @@ jQuery (function ($) {
       this.screenWrapper.prepend (this._clock.element);
       this._clock.element.hide ();
       this._clock.element.show (Mathemaster.animation.question);
-      this._buttonBack =
-        $('<a href="#" class="ion-arrow-return-left" id="back-button"></a>');
-      this._buttonBack = $('#back-button');
-      this._buttonBack.click (function () {
+      this._buttonBack = $('.back-button', '#screen-game');
+      var endGame = function() {
         $(this).tooltip('destroy');
+        $(this).off('click', endGame);
         game.stop ();
         return false;
-      });
-      this._buttonBack.attr({
-        title: 'Back to home screen'
-      });
+      };
+      this._buttonBack.click(endGame);
       this._buttonBack.tooltip();
       this.screenWrapper.append (this._buttonBack);
-      this._buttonBack.hide ();
-      this._buttonBack.show (Mathemaster.animation.question);
+      // this._buttonBack.hide ();
+      // this._buttonBack.show (Mathemaster.animation.question);
       this._started = true;
       this.addKeyListener();
     }
